@@ -2,11 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Deploy') {
-            steps {
-                sh 'KUBECONFIG=/home/abjeet/.kube/config kubectl apply -f deployment.yaml'
-            }
-        }
+
         stage('Build') {
             steps {
                 sh 'mvn clean package'
@@ -21,8 +17,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'kubectl apply -f deployment.yaml'
+                sh 'KUBECONFIG=/home/abjeet/.kube/config kubectl apply -f deployment.yaml'
             }
         }
+
     }
 }
