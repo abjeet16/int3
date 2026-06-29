@@ -1,8 +1,0 @@
-version : '3'
-services :
-  app :
-    image : java-demo
-    ports:
-      - "8081:8081"
-    deploy:
-      replicas: 2
